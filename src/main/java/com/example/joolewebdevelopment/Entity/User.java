@@ -10,6 +10,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Column(name = "address")
+    private String address;
+
     @Column(name = "user_name")
     private String userName;
 
