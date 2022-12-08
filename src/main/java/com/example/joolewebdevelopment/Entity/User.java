@@ -1,4 +1,4 @@
-package com.example.joolewebdevelopment.Entity;
+package com.example.jooleWebDevelopment.Entity;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -18,14 +18,25 @@ public class User {
         this.address = address;
     }
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "user_type")
+    private String user_type;
+
+    public String getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
+    }
 
     @Column(name = "user_name")
     private String userName;
 
     @Column(name = "user_password")
     private String userPassword;
+
+    @Column(name = "address")
+    private String address;
 
     @OneToMany(mappedBy = "user", orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.EAGER )
     private Set<Project> projectList = new HashSet<Project>(){};
