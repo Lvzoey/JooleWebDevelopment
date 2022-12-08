@@ -10,24 +10,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     @Column(name = "user_type")
     private String user_type;
-
-    public String getUser_type() {
-        return user_type;
-    }
-
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
-    }
 
     @Column(name = "user_name")
     private String userName;
@@ -41,6 +25,14 @@ public class User {
     @OneToMany(mappedBy = "user", orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.EAGER )
     private Set<Project> projectList = new HashSet<Project>(){};
 
+    public User(Long id, String user_type, String userName, String userPassword, String address) {
+        this.id = id;
+        this.user_type = user_type;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.address = address;
+    }
+
     public User() {
     }
 
@@ -50,6 +42,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUser_type() {
+        return user_type;
+    }
+
+    public void setUser_type(String user_type) {
+        this.user_type = user_type;
     }
 
     public String getUserName() {
@@ -66,6 +66,14 @@ public class User {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Set<Project> getProjectList() {
