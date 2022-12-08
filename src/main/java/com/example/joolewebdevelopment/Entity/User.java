@@ -30,9 +30,6 @@ public class User {
     @OneToMany(mappedBy = "user", orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.EAGER )
     private Set<Project> projectList = new HashSet<Project>(){};
 
-    @OneToMany(mappedBy = "user", orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.EAGER )
-    private Set<Product> productList = new HashSet<Product>(){};
-
     public User() {
     }
 
@@ -66,14 +63,6 @@ public class User {
 
     public void setProjectList(Set<Project> projectList) {
         this.projectList = projectList;
-    }
-
-    public Set<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(Set<Product> productList) {
-        this.productList = productList;
     }
 }
 
